@@ -1,0 +1,100 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #e6b800;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 8px 20px;
+  box-sizing: border-box;
+}
+
+/* LOGO */
+.gymLogo {
+  width: 120px;
+  height: 48px;
+  background: url("../utils/apoloLogo.png") no-repeat center / contain;
+}
+
+/* CONTENEDOR CENTRAL */
+.menuContainer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+/* MENU */
+.menuOptions {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ITEMS */
+.menuOptions li {
+  position: relative; /* 🔑 para ::after */
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    color 0.2s ease,
+    text-shadow 0.2s ease;
+}
+
+/* Hover */
+.menuOptions li:hover {
+  color: #000;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Click */
+.menuOptions li:active {
+  transform: scale(0.92);
+}
+
+/* Línea animada */
+.menuOptions li::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+}
+
+.menuOptions li:active::after {
+  transform: scaleX(1);
+}
+
+/* ICONO USUARIO */
+.userIcon {
+  display: flex;
+  align-self: flex-end;
+  width: 48px;
+  height: 48px;
+  background: url("../utils/avatarUsuario.png") no-repeat center / contain;
+  cursor: pointer;
+}
+.userIcon:hover{
+  position:sticky;
+  width: 58px;
+  height: 58px;
+  transition: 0.5s;
+  transform: rotate(2deg);
+}
+
+/* SOCIAL (placeholder) */
+.social {
+  width: 120px;
+}

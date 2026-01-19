@@ -1,0 +1,89 @@
+.user-profile {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 20px;
+}
+
+.user-profile h1 {
+  text-align: center;
+  font-size: 42px;
+  color: #e6b800;
+  margin-bottom: 50px;
+}
+
+.profile-card {
+  background: linear-gradient(180deg, #1a1a1a, #101010);
+  border-radius: 18px;
+  padding: 35px;
+  margin-bottom: 40px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.6);
+}
+
+.profile-card h2 {
+  color: #e6b800;
+  margin-bottom: 25px;
+  font-size: 26px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 22px;
+}
+
+.input-group label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #ccc;
+}
+
+.input-group input {
+  background-color: #0e0e0e;
+  border: 2px solid #2b2b2b;
+  border-radius: 10px;
+  padding: 14px;
+  color: #fff;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #e6b800;
+  box-shadow: 0 0 10px rgba(230,184,0,0.4);
+}
+
+/* BOTONES */
+.btn-primary {
+  background-color: transparent;
+  border: 2px solid #e6b800;
+  color: #e6b800;
+  padding: 14px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #e6b800;
+  color: #111;
+}
+
+.btn-danger {
+  background-color: transparent;
+  border: 2px solid #ff4d4d;
+  color: #ff4d4d;
+  padding: 14px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-danger:hover {
+  background-color: #ff4d4d;
+  color: #111;
+}

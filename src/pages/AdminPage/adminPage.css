@@ -1,0 +1,175 @@
+.dashboardContainer {
+    display: flex;
+    height: calc(100dvh - 64px); /* ⬅️ resta altura de la navbar */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* PANEL PRINCIPAL */
+.adminPanel {
+    flex: 1;
+    height: 100%;
+    background: #101010;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+/* VARIABLES – SOLO AMARILLO */
+:root {
+  --gold: #e6b800;
+  --gold-glow: rgba(230, 184, 0, 0.6);
+  --panel-bg: #0d0d0d;
+  --panel-border: rgba(230, 184, 0, 0.35);
+  --text-primary: #ffffff;
+  --text-secondary: #cfcfcf;
+}
+
+/* MENU LATERAL */
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px 16px;
+  background: linear-gradient(180deg, #0f0f0f, #080808);
+  border-right: 2px solid var(--panel-border);
+  min-width: 240px;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* LÍNEAS DECORATIVAS */
+.menu::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(90deg, transparent 95%, rgba(230,184,0,0.05) 100%),
+    linear-gradient(0deg, transparent 95%, rgba(230,184,0,0.05) 100%);
+  background-size: 18px 18px;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+/* BORDE ENERGÉTICO */
+.menu::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--gold),
+    transparent
+  );
+  animation: energy-flow 3s linear infinite;
+}
+
+@keyframes energy-flow {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
+/* BOTONES */
+.menu button {
+  padding: 16px 20px;
+  background: rgba(20, 20, 20, 0.9);
+  border: 1px solid rgba(230,184,0,0.25);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* HOVER */
+.menu button:hover {
+  color: var(--text-primary);
+  border-color: var(--gold);
+  box-shadow:
+    0 0 12px var(--gold-glow),
+    inset 0 0 10px rgba(230,184,0,0.15);
+  transform: translateX(8px);
+}
+
+/* ACTIVO */
+.menu button.active {
+  color: #000;
+  background: linear-gradient(
+    135deg,
+    var(--gold),
+    #ffdd55
+  );
+  box-shadow:
+    0 0 25px var(--gold-glow),
+    inset 0 0 15px rgba(255,255,255,0.25);
+  transform: translateX(12px);
+}
+
+/* INDICADOR */
+.menu button.active::after {
+  content: '▶';
+  position: absolute;
+  right: 16px;
+  color: #000;
+  font-weight: bold;
+}
+
+/* ICONOS */
+.menu button::before {
+  position: absolute;
+  left: -22px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.menu button:nth-child(1)::before { content: '👤'; }
+.menu button:nth-child(2)::before { content: '🎓'; }
+.menu button:nth-child(3)::before { content: '⚡'; }
+
+.menu button:hover::before,
+.menu button.active::before {
+  left: 12px;
+  opacity: 1;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .dashboardContainer {
+    flex-direction: column;
+  }
+
+  .menu {
+    flex-direction: row;
+    min-width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 2px solid var(--panel-border);
+  }
+
+  .menu button {
+    flex: 1;
+    text-align: center;
+    transform: none !important;
+  }
+
+  .menu button.active::after {
+    content: '▼';
+    right: 50%;
+    transform: translateX(50%);
+  }
+}
