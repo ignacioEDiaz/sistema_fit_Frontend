@@ -1,5 +1,5 @@
 import api from "../../api/axios.js";
-import { useState,useEffect} from "react";
+import { useState} from "react";
 import "./panelUsuario.css";
 
 export default function PanelUsuario() {

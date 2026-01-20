@@ -1,7 +1,7 @@
 import "./actividadesCard.css"
-import { useState,useEffect, useContext } from "react"
+import { useState,useEffect } from "react"
 import api from "../api/axios";
-import StateActividad  from "../context/StateActividad";
+
 import { useNavigate } from "react-router-dom";
 
 

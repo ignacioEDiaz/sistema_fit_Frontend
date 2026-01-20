@@ -46,50 +46,48 @@ const AdminDashboard = () => {
       
       {/* MENU */}
        <aside className="menu">
-      <button
-        className={panelActivo === "USUARIO" ? "active" : ""}
-        onClick={() => handlePanelChange("USUARIO")}
-        aria-selected={panelActivo === "USUARIO"}
-      >
-        {!isMobile ? (
-          <span>Usuario</span>
-        ) : (
-          <>
-            <span className="menu-icon">👤</span>
-            <span>Usuario</span>
-          </>
-        )}
-      </button>
+     <button
+  className={panelActivo === "USUARIO" ? "active" : ""}
+  onClick={() => handlePanelChange("USUARIO")}
+>
+  {!isMobile ? (
+    <span>Usuario</span>
+  ) : (
+    <>
+      <span className="menu-icon">👤</span>
+      <span>Usuario</span>
+    </>
+  )}
+</button>
 
-      <button
-        className={panelActivo === "PROFESOR" ? "active" : ""}
-        onClick={() => handlePanelChange("PROFESOR")}
-        aria-selected={panelActivo === "PROFESOR"}
-      >
-        {!isMobile ? (
-          <span>Profesor</span>
-        ) : (
-          <>
-            <span className="menu-icon">🎓</span>
-            <span>Profesor</span>
-          </>
-        )}
-      </button>
+<button
+  className={panelActivo === "PROFESOR" ? "active" : ""}
+  onClick={() => handlePanelChange("PROFESOR")}
+>
+  {!isMobile ? (
+    <span>Profesor</span>
+  ) : (
+    <>
+      <span className="menu-icon">🎓</span>
+      <span>Profesor</span>
+    </>
+  )}
+</button>
 
-      <button
-        className={panelActivo === "ACTIVIDADES" ? "active" : ""}
-        onClick={() => handlePanelChange("ACTIVIDADES")}
-        aria-selected={panelActivo === "ACTIVIDADES"}
-      >
-        {!isMobile ? (
-          <span>Actividades</span>
-        ) : (
-          <>
-            <span className="menu-icon">⚡</span>
-            <span>Actividades</span>
-          </>
-        )}
-      </button>
+<button
+  className={panelActivo === "ACTIVIDADES" ? "active" : ""}
+  onClick={() => handlePanelChange("ACTIVIDADES")}
+>
+  {!isMobile ? (
+    <span>Actividades</span>
+  ) : (
+    <>
+      <span className="menu-icon">⚡</span>
+      <span>Actividades</span>
+    </>
+  )}
+</button>
+
       
       {/* Efecto visual adicional para el panel activo */}
       <div className="active-indicator" data-active={panelActivo}></div>

@@ -56,7 +56,7 @@ export default function Instalacion(){
                         {
                             instalaciones.map((insta)=>{
                                 return <li key ={insta.id}>
-                                    <img src={`data:${insta.imagen.mimeType};base64,${insta.imagen.buffer}`} width={1100} height={680} />
+                                    <img src={`data:${insta.imagen.mimeType};base64,${insta.imagen.buffer}`} width={1100} height={680} alt="jijija" />
                                 </li>
                             })
                         }
