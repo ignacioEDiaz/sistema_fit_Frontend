@@ -46,16 +46,22 @@ function getColorClase(inscriptos , capacidad ) {
   }
 }
 async function inscribirAct(horarioInicio) {
-  try{
-    api.post("/actividad/inscribirUsuarioEn",{
-      nombreActividad:nombreActividad,
-      dia:dia,
-      horarioInicioActividad:horarioInicio,
-        })
-  }catch(err){
-    alert(err)
+  try {
+    await api.post("/actividad/inscribirUsuarioEn", {
+      nombreActividad,
+      dia,
+      horarioInicioActividad: horarioInicio,
+    });
+
+    // refresca tus actividades
+    await getMisActividades();
+
+  } catch (err) {
+    console.error(err);
+    alert(err?.response?.data?.error || "Error al inscribirte");
   }
 }
+
 
 
    const { nombre }=useParams()
@@ -64,6 +70,9 @@ useEffect(() => {
     setNombreActividad(nombre)
   }
 }, [nombre])
+useEffect(()=>{
+
+},[])
 
     return(
         <div className="actContainer">
