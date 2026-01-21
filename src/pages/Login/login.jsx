@@ -33,6 +33,10 @@ export default function Login(){
         <h1>Login</h1>
         <div className="login-form">
             <h2>Bienvenido/a!</h2>
+            <p> CREDENCIALES: <br />
+                USUARIO: 23754702 <br />
+                CONTRASEÑA: 1234
+            </p>
         <form
         onSubmit={handleSubmit                                                                                                     }
         >
