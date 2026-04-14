@@ -1,10 +1,12 @@
 import "./navBar.css";
-import { useEffect } from "react";
-import { useNavigate,useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export default function NavBar() {
   const navigate = useNavigate();
   const { hash } = useLocation();
+
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     if (hash) {
@@ -13,23 +15,40 @@ export default function NavBar() {
     }
   }, [hash]);
 
+  const goTo = (ruta) => {
+    navigate(ruta);
+    setMenuOpen(false);
+  };
 
   return (
     <nav className="nav">
+
       <div className="gymLogo" />
 
-      <div className="menuContainer">
+      {/* HAMBURGUESA */}
+      <div
+        className={`hamburger ${menuOpen ? "active" : ""}`}
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      {/* MENÚ */}
+      <div className={`menuContainer ${menuOpen ? "open" : ""}`}>
         <ol className="menuOptions">
-          <li onClick={() => navigate("/#inicio")}>Inicio</li>
-          <li onClick={() => navigate("/#actividades")}>Actividades</li>
-          <li onClick={() => navigate("/#instalaciones")}>Instalaciones</li>
-          <li onClick={() => navigate("/adminDashboard")}>Administrar</li>
+          <li onClick={() => goTo("/#inicio")}>Inicio</li>
+          <li onClick={() => goTo("/#actividades")}>Actividades</li>
+          <li onClick={() => goTo("/#instalaciones")}>Instalaciones</li>
+          <li onClick={() => goTo("/adminDashboard")}>Administrar</li>
         </ol>
 
-        <div className="userIcon" onClick={()=> navigate("/profile")} />
+        <div className="userIcon" onClick={() => goTo("/profile")} />
       </div>
 
       <div className="social" />
+
     </nav>
   );
 }

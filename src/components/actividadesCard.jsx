@@ -23,30 +23,38 @@ export default function ActividadesSection(){
     }
 
     return (
-        <div className="actividadesContainer">
+    <div className="actividadesContainer">
         <h1 className="titulo">actividades</h1>
-        <div className="actividadesFila">
-            {actividades.map((act)=>(
-                <div key={act.id} className="actividadCard">
-                    <h2 className="">{act.nombre}</h2>
-                   <div className="imagenContainer"> {act.imagen ? (
-                            <img
-                                src={`data:${act.imagen.mimeType};base64,${act.imagen.buffer}`}
-                                alt={act.nombre}
-                                className="actividadImg"
-                            />
-                        ) : (
-                            <p>Sin imagen</p>
-                        )}
-                        </div>
-                    <button
-                    onClick={() => irAct(act.nombre)}
-                     className="actividadButton">Ver horarios</button>
 
-                </div>
-            ))}
+        <div className="actividadesCarrusel">
+            <div className="actividadesFila">
+                {actividades.map((act) => (
+                    <div key={act.id} className="actividadCard">
+                        <h2>{act.nombre}</h2>
+
+                        <div className="imagenContainer">
+                            {act.imagen ? (
+                                <img
+                                    src={`data:${act.imagen.mimeType};base64,${act.imagen.buffer}`}
+                                    alt={act.nombre}
+                                    className="actividadImg"
+                                />
+                            ) : (
+                                <p>Sin imagen</p>
+                            )}
+                        </div>
+
+                        <button
+                            onClick={() => irAct(act.nombre)}
+                            className="actividadButton"
+                        >
+                            Ver horarios
+                        </button>
+                    </div>
+                ))}
+            </div>
         </div>
-        </div>
-    )
+    </div>
+);
 
 }
